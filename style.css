@@ -86,9 +86,11 @@ div#intro {
 .neon-button:hover,
 .neon-button:focus {
   background: var(--forest-green-0);
+  color: var(--forest-green-1);
   text-shadow: 0;
   border: var(--forest-green-0) 0.125em solid;
   transition: 100ms linear;
+  transition: 200ms linear color;
 }
 
 .neon-button .intro::before {
@@ -125,4 +127,17 @@ div#intro {
 #nav {
   background-color: var(--forest-green-1);
   height: 3rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 0;
+}
+
+.page {
+  height: 100vh;
+  z-index: -2;
+}
+
+.content {
+  z-index: -2;
 }
