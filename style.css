@@ -31,6 +31,7 @@ div#intro {
     0 0 0.25em var(--forest-green-0);
   color: inherit;
   font-size: 2rem;
+  text-decoration: none;
 }
 
 .neon-button {
@@ -127,28 +128,24 @@ div#intro {
   text-align: center;
   padding: 0.8rem 1.2rem;
   text-decoration: none;
+  background: 
+    linear-gradient(to right, #00000000, #00000000),
+    linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 180, 1), rgba(0, 100, 200, 1));
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
 }
 
-#nav a:hover {
+#nav a:hover,
+#nav a:focus {
+  background-color: var(--cool-gray);
   color: var(--forest-green-0);
   transition: 100ms linear;
   text-shadow: 
     0 0 0.125em hsl(0 0% 100% / 0.3),
     0 0 0.25em var(--forest-green-0);
-}
-
-#nav a:hover::before {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  transition: 100ms linear;
-  background: var(--forest-green-0);
-  filter: blur(1em);
-  opacity: 0.8;
-  top: 80%;
-  width: 2rem;
-  height: 1rem;
-  transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1, 0.5);
+  background-size: 0 0.1em, 100% 0.1em;
 }
 
 .page {
