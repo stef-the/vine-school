@@ -125,19 +125,30 @@ div#intro {
   float: left;
   color: var(--white);
   text-align: center;
-  height: 3rem;
-  padding: 0 1.5rem 0 1.5rem;
+  padding: 0.8rem 1.2rem;
   text-decoration: none;
-  vertical-align: middle;
 }
 
 #nav a:hover {
   color: var(--forest-green-0);
   transition: 100ms linear;
-  background-color: var(--cool-gray);
   text-shadow: 
     0 0 0.125em hsl(0 0% 100% / 0.3),
     0 0 0.25em var(--forest-green-0);
+}
+
+#nav a:hover::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  transition: 100ms linear;
+  background: var(--forest-green-0);
+  filter: blur(1em);
+  opacity: 0.8;
+  top: 80%;
+  width: 2rem;
+  height: 1rem;
+  transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1, 0.5);
 }
 
 .page {
