@@ -1,4 +1,5 @@
 :root {
+  --black: #050508;
   --cool-gray: #606462;
   --white: #edf0ee;
   --forest-green-0: #00dea3;
@@ -14,7 +15,8 @@ body {
 
 body {
   background-color: var(--white);
-  font-family: "Balsamiq Sans";
+  font-family: "Open Sans";
+  color: var(--black)
 }
 
 div#intro {
@@ -93,19 +95,6 @@ div#intro {
   transition: 200ms linear color;
 }
 
-.neon-button .intro::before {
-  content: "Ascella.host";
-}
-.neon-button:hover .intro::before,
-.neon-button:focus .intro::before {
-  content: "";
-}
-
-.neon-button:hover .intro::after,
-.neon-button:focus .intro::after {
-  content: "GO";
-}
-
 .neon-button:hover::before,
 .neon-button:focus::before {
   transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1.1, 0.6);
@@ -126,11 +115,19 @@ div#intro {
 
 #nav {
   background-color: var(--forest-green-1);
-  background: linear-gradient(0deg, #00000000 0%, var(--forest-green-1) 15%, var(--forest-green-1) 100%);
-  height: 3rem;
   width: 100%;
-  position: fixed;
+  height: 3rem;
+  position: sticky;
   top: 0;
+}
+
+#nav a {
+  float: left;
+  display: block;
+  color: var(--white);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
 }
 
 .page {
