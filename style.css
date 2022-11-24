@@ -74,7 +74,8 @@ div#intro {
   transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1, 0.5);
 }
 
-.neon-button::before:hover {
+.neon-button::before:hover,
+.neon-button::before:focus {
   transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(2, 0.5);
 }
 
