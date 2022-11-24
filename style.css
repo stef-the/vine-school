@@ -1,6 +1,7 @@
 :root {
   --black: #050508;
   --cool-gray: #606462;
+  --light-gray: #d4d4d4;
   --white: #edf0ee;
   --forest-green-0: #00dea3;
   --forest-green-1: #00493a;
@@ -154,4 +155,13 @@ div#intro {
 
 .content {
   z-index: 0;
+}
+
+div.contentbox {
+  display: grid;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--light-gray);
+  border-radius: 0.25rem;
+  height: 30vh;
 }
