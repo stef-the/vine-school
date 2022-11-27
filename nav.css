@@ -47,7 +47,7 @@
     display: inline-block;
     height: 2rem;
     position: relative;
-    width: 3.5rem;
+    width: 2rem;
 }
 
 .theme-switch input {
@@ -55,7 +55,7 @@
 }
 
 .slider {
-    background-color: var(--cool-gray);
+    background-color: var(--forest-green-1);
     bottom: 0;
     cursor: pointer;
     left: 0;
@@ -66,19 +66,24 @@
     border-radius: 0.1rem;
 }
 
-input:checked+.slider {
-    background-color: var(--forest-green-0);
+.slider i.sun,
+.slider i.moon {
+    color: transparent;
+    display: inline-block;
+    position: absolute;
+    transition: 250ms ease-in-out;
 }
 
 .slider i.sun {
-    display: inline-block;
-    position: absolute;
     padding: 1rem 0.25rem;
-    color: var(--forest-green-0);
 }
+input:not(:checked)+.slider i.sun {
+    color: var(--sun-yellow);
+}
+
 .slider i.moon {
-    display: inline-block;
-    position: absolute;
-    padding: 1rem 2rem;
-    color: var(--cool-gray);
+    padding: 1rem 0.35rem;
+}
+input:checked+.slider i.moon {
+    color: var(--white);
 }
