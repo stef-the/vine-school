@@ -1,18 +1,19 @@
 :root {
   --black: #050508;
-  --cool-gray: #606462;
+  --cool-gray: #4a4b4a;
   --light-gray: #d4d4d4;
   --white: #edf0ee;
+  --white-fixed: #edf0ee;
   --forest-green-0: #04B086;
   --forest-green-1: #00493a;
   --sun-yellow: #f9d71c;
 }
 
 [data-theme="dark"] {
-  --black: #050508;
-  --cool-gray: #606462;
-  --light-gray: #d4d4d4;
-  --white: #edf0ee;
+  --black: #edf0ee;
+  --cool-gray: #d4d4d4;
+  --light-gray: #4a4b4a;
+  --white: #050508;
   --forest-green-0: #04B086;
   --forest-green-1: #00493a;
   --sun-yellow: #f9d71c;
@@ -28,13 +29,19 @@ body {
 
 body {
   background-color: var(--white);
-  background-image: url(https://i.natgeofe.com/n/2a832501-483e-422f-985c-0e93757b7d84/6.jpg)/*linear-gradient(45deg, var(--light-gray), var(--black))*/;
   font-family: "Open Sans";
   color: var(--black);
-  
+  background-image: linear-gradient(45deg, var(--white), var(--light-gray));
+
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+
+  transition: 250ms ease-in-out;
+}
+
+body.dark {
+  background-image: linear-gradient(110deg, var(--light-gray), var(--white));
 }
 
 div#intro {
@@ -143,9 +150,21 @@ div.precontentbox {
 
 div.contentbox {
   display: flex;
-  padding: 1rem;
+  padding: 2rem 1rem;
   background-color: var(--light-gray);
-  height: 30vh;
+  height: min-content;
+  cursor: pointer;
+  background:
+      linear-gradient(to right, #00000000, #00000000),
+      linear-gradient(to right, var(--forest-green-0), var(--forest-green-0));
+  background-size: 100% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+}
+
+div.contentbox:hover {
+  box-shadow: 0 0 1rem var(--forest-green-0);
+  padding: 2.5rem, 1rem;
 }
 
 div.contentbox img {
