@@ -10,7 +10,20 @@ function switchTheme(e) {
     else {
         document.documentElement.setAttribute('data-theme', 'light');
     }
-    body.classList.toggle('dark')
+    body.classList.toggle('dark');
 }
 
 toggleSwitch.addEventListener('change', switchTheme, false);
+
+
+let langSwitchButton = document.getElementById('langswitch');
+let englishBool = true
+function langSwitch() {
+    if (englishBool) {
+        langSwitchButton.textContent = "🇫🇷";
+        englishBool = false;
+    } else {
+        langSwitchButton.textContent = "🇬🇧";
+        englishBool = true;
+    }
+}

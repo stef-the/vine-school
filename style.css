@@ -1,6 +1,6 @@
 :root {
   --black: #050508;
-  --cool-gray: #4a4b4a;
+  --forest-green-0ool-gray: #4a4b4a;
   --light-gray: #d4d4d4;
   --white: #edf0ee;
   --white-fixed: #edf0ee;
@@ -11,7 +11,7 @@
 
 [data-theme="dark"] {
   --black: #edf0ee;
-  --cool-gray: #d4d4d4;
+  --forest-green-0ool-gray: #d4d4d4;
   --light-gray: #4a4b4a;
   --white: #050508;
   --forest-green-0: #04B086;
@@ -78,6 +78,7 @@ div#intro {
   position: relative;
   transition: 100ms linear;
 }
+
 .neon-button::before,
 .neon-button::after {
   content: "";
@@ -145,31 +146,55 @@ div#intro {
 }
 
 div.precontentbox {
-  height: 3rem; /* https://www.w3schools.com/howto/howto_css_parallax.asp */
+  height: 3rem;
+  /* https://www.w3schools.com/howto/howto_css_parallax.asp */
+}
+
+div.contentboxwall {
+  background: linear-gradient(to right, var(--light-gray) 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
+  margin: 2rem;
+}
+
+div.contentboxwall:hover,
+div.contentboxwall:focus {
+  background-position: left bottom;
 }
 
 div.contentbox {
   display: flex;
-  padding: 2rem 1rem;
-  background-color: var(--light-gray);
   height: min-content;
   cursor: pointer;
+  transition: 300ms linear;
+  background-color: transparent;
+
+  --b: 0.5rem;
+  /* the border thickness*/
+  --g: 1rem;
+  /* the gap on hover */
+
+  padding: calc(var(--g) + var(--b));
+  --_g: #0000 25%, var(--forest-green-0) 0;
   background:
-      linear-gradient(to right, #00000000, #00000000),
-      linear-gradient(to right, var(--forest-green-0), var(--forest-green-0));
-  background-size: 100% 0.1em, 0 0.1em;
-  background-position: 100% 100%, 0 100%;
-  background-repeat: no-repeat;
+    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0 /200% var(--_i, var(--b)) no-repeat,
+    conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+  transition: .3s, background-position .3s .3s;
+  cursor: pointer;
 }
 
-div.contentbox:hover {
-  box-shadow: 0 0 1rem var(--forest-green-0);
-  padding: 2.5rem, 1rem;
+div.contentbox:hover,
+div.contentbox:focus {
+  --_i: 100%;
+  transition: .3s, background-size .3s .3s;
+}
+
+div.contentbox div {
+  padding: 1rem;
 }
 
 div.contentbox img {
   height: calc(30vh - 2rem);
   margin: 1rem;
 }
-
-
