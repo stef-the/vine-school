@@ -121,9 +121,16 @@ input:checked+.slider i.moon {
 	cursor: pointer;
 	outline: inherit;
 }
+
 #lang button svg {
     position: absolute;
     top: 50%;
     right: 0rem;
     transform: translate(0%, -50%);
+    transition: 250ms ease-in-out;
+}
+
+#lang button svg:hover {
+    transform: scale(1.2);
+    top: 15%;
 }
