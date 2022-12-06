@@ -1,21 +1,23 @@
 :root {
   --black: #050508;
-  --forest-green-0ool-gray: #4a4b4a;
+  --cool-gray: #4a4b4a;
   --light-gray: #d4d4d4;
   --white: #edf0ee;
   --white-fixed: #edf0ee;
-  --forest-green-0: #04B086;
-  --forest-green-1: #00493a;
+  --forest-green-0: #27cbfd;
+  --forest-green-1: #374b77;
+  --forest-green-2: #15264b;
   --sun-yellow: #f9d71c;
 }
 
 [data-theme="dark"] {
-  --black: #edf0ee;
-  --forest-green-0ool-gray: #d4d4d4;
+  --black: #ccc;
+  --cool-gray: #d4d4d4;
   --light-gray: #4a4b4a;
   --white: #050508;
   --forest-green-0: #04B086;
   --forest-green-1: #00493a;
+  --forest-green-2: #041f14;
   --sun-yellow: #f9d71c;
 }
 
@@ -46,6 +48,7 @@ body.dark {
 
 div#intro {
   background-color: var(--forest-green-1);
+  background-image: linear-gradient(var(--forest-green-2), var(--forest-green-1));
   height: 100vh;
 }
 
@@ -151,16 +154,17 @@ div.precontentbox {
 }
 
 div.contentboxwall {
-  background: linear-gradient(to right, var(--light-gray) 50%, transparent 50%);
-  background-size: 200% 100%;
+  background: linear-gradient(150deg, var(--light-gray) 50%, transparent 50%);
+  background-size: 200% 200%;
   background-position: right bottom;
-  transition: all .5s ease-out;
+  transition: all .5s ease-in-out;
   margin: 2rem;
 }
 
 div.contentboxwall:hover,
 div.contentboxwall:focus {
-  background-position: left bottom;
+  background-position: left top;
+  box-shadow: 0 0 2em 0.5em var(--forest-green-0);
 }
 
 div.contentbox {

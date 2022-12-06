@@ -108,7 +108,7 @@ input:checked+.slider i.moon {
     cursor: pointer;
     position: absolute;
     top: 50%;
-    right: 4%;
+    right: 3rem;
     transform: translate(0%, -50%);
 }
 
@@ -120,4 +120,10 @@ input:checked+.slider i.moon {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+#lang button svg {
+    position: absolute;
+    top: 50%;
+    right: 0rem;
+    transform: translate(0%, -50%);
 }
