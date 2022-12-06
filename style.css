@@ -164,8 +164,9 @@ div.contentboxwall {
 div.contentboxwall:hover,
 div.contentboxwall:focus {
   background-position: left top;
-  box-shadow: 0 0 2em 0.5em var(--forest-green-0);
-  box-shadow: 0 0 2em 0.5em black inset;
+  box-shadow: 
+    0 0 2em 0.5em var(--forest-green-0),
+    0 0 2em 0.5em black inset;
 }
 
 div.contentbox {
