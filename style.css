@@ -166,7 +166,7 @@ div.contentboxwall:focus {
   background-position: left top;
   box-shadow: 
     0 0 2em 0.5em var(--forest-green-0),
-    0 0 2em 0.5em black inset;
+    0 0 1em 0.1em black inset;
 }
 
 div.contentbox {
