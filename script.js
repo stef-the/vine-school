@@ -20,29 +20,25 @@ const lang = {
     "en-uk": {
         "creation": {
             "title": "Creation and Release",
-            "0": "Vine was initially concieved in June 2012.",
-            "1": "It was then bought by Twitter in October 2012.",
-            "2": "Its official release happened on January 24, 2013 - nearly ten years ago."
+            "content": "Vine was initially concieved in June 2012. It was then bought by Twitter in October 2012. Its official release happened on January 24, 2013 - nearly ten years ago.",
+            "img": "vine.png"
         },
         "purpose": {
             "title": "Purpose",
-            "0": "Vine is a short-form video platform and social media.",
-            "1": "abc,",
-            "2": "imposter."
+            "content": "Vine is a short-form video platform and social media. abc,",
+            "img": "vine.png"
         }
     },
     "fr-fr": {
         "creation": {
             "title": "Creation",
-            "0": "Vine a ete initallement concu en  2012.",
-            "1": "Elle a ensuite ete achete Twitter en Octobre 2012.",
-            "2": "Ce produit a ete finalement sortie le 24 Janvier, 2013 - il y a presque dix ans."
+            "content": "Vine a ete initallement concu en  2012. Elle a ensuite ete achete Twitter en Octobre 2012. Ce produit a ete finalement sortie le 24 Janvier, 2013 - il y a presque dix ans.",
+            "img": "vine.png"
         },
         "purpose": {
             "title": "Purpose",
-            "0": "Vine est une plateforme de videos courts, et donc un reseau social.",
-            "1": "akjdab.",
-            "2": "imposteur."
+            "content": "Vine est une plateforme de videos courts, et donc un reseau social. akjdab.",
+            "img": "vine.png"
         }
     }
 }
@@ -60,12 +56,10 @@ function swapLang(languageTag) {
         <div class="precontentbox"></div>
         <div data-aos="fade-up"><div class="contentboxwall">
           <div class="contentbox">
-            <img src="vine.png">
+            <img src="${lang[languageTag][element]["img"]}">
             <div>
               <h1 id="${element}title">${lang[languageTag][element]["title"]}</h1>
-              <span id="${element}0">${lang[languageTag][element]["0"]}</span>
-              <span id="${element}1">${lang[languageTag][element]["1"]}</span>
-              <span id="${element}2">${lang[languageTag][element]["2"]}</span>
+              <span id="${element}0">${lang[languageTag][element]["content"]}</span>
             </div>
           </div>
         </div></div>`;
