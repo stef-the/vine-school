@@ -1,5 +1,6 @@
 const toggleSwitch = document.getElementById('checkbox');
-const body = document.getElementsByTagName('body')[0]
+const body = document.getElementsByTagName('body')[0];
+const wiki = document.getElementById('wiki');
 
 toggleSwitch.checked = true
 body.classList.toggle('dark')
@@ -82,3 +83,29 @@ function langSwitch() {
 }
 
 swapLang("en-uk");
+
+async function doFetch() {
+    const rsp = await fetch(
+        "https://en.wikipedia.org/api/rest_v1/page/html/Vine_%28service%29?redirect=false&stash=true",
+        { 'Api-User-Agent': 'MediaWiki REST API docs examples/0.1 (https://www.mediawiki.org/wiki/API_talk:REST_API)' }
+    );
+    const data = await rsp.text();
+    return data;
+}
+
+async function fetchAsync() {
+    try {
+        let result = await doFetch();
+        let a = result.split('<section');
+        a.pop();
+        a.pop();
+        a.pop();
+        console.log(result);
+        wiki.innerHTML = a.join("<section");
+        document.getElementsByClassName('infobox vevent')[0].remove();
+    } catch (err) {
+        console.error(err.message);
+    }
+}
+
+fetchAsync();
