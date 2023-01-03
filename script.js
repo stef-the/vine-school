@@ -101,10 +101,18 @@ async function fetchAsync() {
         a.pop();
         a.pop();
         a.pop();
-        console.log(a)
-        console.log(result);
         wiki.innerHTML = "<section" + a.join("<section");
         document.getElementsByClassName('infobox vevent')[0].remove();
+
+        const sections = document.getElementsByTagName('section')
+        console.log(sections)
+
+        for (var i = 0; i < sections.length; i++) {
+            const h2Element = sections[i].firstChild
+            console.log(h2Element)
+
+            
+        };
     } catch (err) {
         console.error(err.message);
     }
