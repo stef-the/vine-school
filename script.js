@@ -97,11 +97,13 @@ async function fetchAsync() {
     try {
         let result = await doFetch();
         let a = result.split('<section');
+        a.shift();
         a.pop();
         a.pop();
         a.pop();
+        console.log(a)
         console.log(result);
-        wiki.innerHTML = a.join("<section");
+        wiki.innerHTML = "<section" + a.join("<section");
         document.getElementsByClassName('infobox vevent')[0].remove();
     } catch (err) {
         console.error(err.message);

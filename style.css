@@ -204,3 +204,9 @@ div.contentbox img {
   height: calc(30vh - 2rem);
   margin: 1rem;
 }
+
+
+section {
+  margin: 2rem;
+  padding: 1rem;
+}
