@@ -83,6 +83,10 @@ function langSwitch() {
 
 swapLang("en-uk");
 
+function dropdown() {
+    console.log(dropdown.caller.arguments[0].target.id);
+}
+
 async function doFetch() {
     const rsp = await fetch(
         "https://en.wikipedia.org/api/rest_v1/page/html/Vine_%28service%29?redirect=false&stash=true", {
@@ -109,19 +113,26 @@ async function fetchAsync() {
 
         for (let i = 0; i < sections.length; i++) {
             sections[i].classList.add("contentboxwall");
+            sections[i].classList.add("dropdowns");
+            if (i !== 0) {
+                sections[i].onclick = function() {
+                    alert("ae");
+                };
+            }
             let storedHTML = sections[i].innerHTML;
+
             sections[
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
             let h2element = sections[i].getElementsByTagName("h2")[0];
             let elements = sections[i].children;
+            let elementslist = [...elements]
+            console.log(elementslist)
+            elementslist.shift();
 
-            console.log(h2element);
+            console.log(elementslist)
 
-            for (let j = 0; j < elements.length; j++) {
-                let element = elements[j];
-            }
         }
     } catch (err) {
         console.error(err.message);
