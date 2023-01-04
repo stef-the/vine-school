@@ -116,10 +116,15 @@ async function fetchAsync() {
             sections[i].classList.add("dropdowns");
             if (i !== 0) {
                 sections[i].onclick = function() {
-                    alert("ae");
+                    //alert("ae");
                 };
             }
             let storedHTML = sections[i].innerHTML;
+            let links = sections[i].getElementsByTagName('a');
+
+            [...links].forEach(link => {
+                storedHTML.replaceAll(link, '');
+            });
 
             sections[
                 i
