@@ -113,11 +113,6 @@ async function fetchAsync() {
         for (let i = 0; i < sections.length; i++) {
             sections[i].classList.add("contentboxwall");
             sections[i].classList.add("dropdowns");
-            if (i !== 0) {
-                sections[i].onclick = function() {
-                    //alert("ae");
-                };
-            }
             let storedHTML = sections[i].innerHTML;
             let links = sections[i].getElementsByTagName("a");
 
@@ -129,15 +124,25 @@ async function fetchAsync() {
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
-            [...sections[i].getElementsByTagName("h2")].forEach((a) => {
-                a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`;
-            });
+            [...sections[i].getElementsByTagName("h2")].forEach(
+                (a) =>
+                (a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`)
+            );
             [...sections[i].getElementsByTagName("a")].forEach(
                 (a) => (a.outerHTML = a.innerHTML)
             );
             [...sections[i].querySelectorAll("span.mw-reflink-text")].forEach(
                 (a) => (a.outerHTML = "")
             );
+
+            const subcontentbox = sections[i].querySelector("div.contentbox div");
+            const h2e = subcontentbox.firstChild;
+            subcontentbox.removeChild(h2e);
+            subcontentbox.innerHTML = `<div class="dropdowncontent">${subcontentbox.innerHTML}</div>`;
+            subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
+            h2e.onclick = function(self) {
+                console.log(self.target.id)
+            }
         }
 
         const contentboxes = document.getElementsByClassName("contentbox");
