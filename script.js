@@ -44,7 +44,7 @@ const langers = {
     },
 };
 
-const lang = langers;
+const lang = {};
 const langSwitchButton = document.getElementById("langswitch");
 const content = document.getElementById("content");
 let englishBool = true;
@@ -135,13 +135,21 @@ async function fetchAsync() {
                 (a) => (a.outerHTML = "")
             );
 
-            const subcontentbox = sections[i].querySelector("div.contentbox div");
-            const h2e = subcontentbox.firstChild;
-            subcontentbox.removeChild(h2e);
-            subcontentbox.innerHTML = `<div class="dropdowncontent">${subcontentbox.innerHTML}</div>`;
-            subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
-            h2e.onclick = function(self) {
-                console.log(self.target.id)
+            if (i !== 0) {
+                const subcontentbox = sections[i].querySelector("div.contentbox div");
+                const h2e = subcontentbox.firstChild;
+                subcontentbox.removeChild(h2e);
+                subcontentbox.innerHTML = `<div class="dropdowncontent muted">${subcontentbox.innerHTML}</div>`;
+                subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
+                h2e.onclick = function(self) {
+                    let element;
+                    if (self.path[0].id.includes("dropdownbutton")) {
+                        element = self.path[0];
+                    } else if (self.path[1].id.includes("dropdownbutton")) {
+                        element = self.path[1];
+                    }
+                    element.nextElementSibling.classList.toggle("muted");
+                };
             }
         }
 
