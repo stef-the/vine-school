@@ -129,10 +129,9 @@ async function fetchAsync() {
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
-            [...sections[i].getElementsByTagName("h2")].forEach(
-                (a) =>
-                (a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`)
-            );
+            [...sections[i].getElementsByTagName("h2")].forEach((a) => {
+                a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`;
+            });
             [...sections[i].getElementsByTagName("a")].forEach(
                 (a) => (a.outerHTML = a.innerHTML)
             );
