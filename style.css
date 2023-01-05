@@ -1,211 +1,201 @@
 :root {
-  --black: #050508;
-  --cool-gray: #4a4b4a;
-  --light-gray: #d4d4d4;
-  --white: #edf0ee;
-  --white-fixed: #edf0ee;
-  --forest-green-0: #27cbfd;
-  --forest-green-1: #387d92;
-  --forest-green-2: #184d57;
-  --sun-yellow: #f9d71c;
+    --black: #050508;
+    --cool-gray: #4a4b4a;
+    --light-gray: #d4d4d4;
+    --white: #edf0ee;
+    --white-fixed: #edf0ee;
+    --forest-green-0: #27cbfd;
+    --forest-green-1: #387d92;
+    --forest-green-2: #184d57;
+    --sun-yellow: #f9d71c;
 }
 
 [data-theme="dark"] {
-  --black: #ccc;
-  --cool-gray: #d4d4d4;
-  --light-gray: #4a4b4a;
-  --white: #050508;
-  --forest-green-0: #04B086;
-  --forest-green-1: #00493a;
-  --forest-green-2: #041f14;
-  --sun-yellow: #f9d71c;
+    --black: #ccc;
+    --cool-gray: #d4d4d4;
+    --light-gray: #4a4b4a;
+    --white: #050508;
+    --forest-green-0: #04B086;
+    --forest-green-1: #00493a;
+    --forest-green-2: #041f14;
+    --sun-yellow: #f9d71c;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--white);
-  font-family: "Open Sans";
-  color: var(--black);
-  background-image: linear-gradient(45deg, var(--white), var(--light-gray));
-
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  transition: 250ms ease-in-out;
+    background-color: var(--white);
+    font-family: "Open Sans";
+    color: var(--black);
+    background-image: linear-gradient(45deg, var(--white), var(--light-gray));
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 250ms ease-in-out;
 }
 
 body.dark {
-  background-image: linear-gradient(110deg, var(--light-gray), var(--white));
+    background-image: linear-gradient(110deg, var(--light-gray), var(--white));
 }
 
 div#intro {
-  background-color: var(--forest-green-1);
-  background-image: linear-gradient(var(--forest-green-2), var(--forest-green-1));
-  height: 100vh;
+    background-color: var(--forest-green-1);
+    background-image: linear-gradient(var(--forest-green-2), var(--forest-green-1));
+    height: 100vh;
 }
 
 .title {
-  pointer-events: none;
-  margin: 0 0 0.2em 0;
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.25em var(--forest-green-0);
-  color: inherit;
-  font-size: 2rem;
-  text-decoration: none;
+    pointer-events: none;
+    margin: 0 0 0.2em 0;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.25em var(--forest-green-0);
+    color: inherit;
+    font-size: 2rem;
+    text-decoration: none;
 }
 
 .neon-button {
-  font-size: 4rem;
-  width: 4.2rem;
-  justify-content: center;
-  display: flex;
-  display: inline-block;
-  font-size: 2rem;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--forest-green-0);
-  border: transparent 0.125em solid;
-  padding: 0.25em 1em;
-  border-radius: 0.25em;
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 5rem 0.25em var(--forest-green-0);
-  box-shadow: inset 0 0 0.75em transparent, 0 0 0.75em transparent;
-  position: relative;
-  transition: 100ms linear;
+    font-size: 4rem;
+    width: 4.2rem;
+    justify-content: center;
+    display: flex;
+    display: inline-block;
+    font-size: 2rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--forest-green-0);
+    border: transparent 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 5rem 0.25em var(--forest-green-0);
+    box-shadow: inset 0 0 0.75em transparent, 0 0 0.75em transparent;
+    position: relative;
+    transition: 100ms linear;
 }
 
 .neon-button::before,
 .neon-button::after {
-  content: "";
-  pointer-events: none;
-  position: absolute;
-  transition: 100ms linear;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    transition: 100ms linear;
 }
 
 .neon-button::before {
-  background: var(--forest-green-0);
-  filter: blur(1em);
-  opacity: 0.8;
-  top: 120%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1, 0.5);
+    background: var(--forest-green-0);
+    filter: blur(1em);
+    opacity: 0.8;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1, 0.5);
 }
 
 .neon-button::before:hover,
 .neon-button::before:focus {
-  transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(2, 0.5);
+    transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(2, 0.5);
 }
 
 .neon-button::after {
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  box-shadow: 0 0 2em 0.5em var(--forest-green-0);
-  opacity: 0;
-  transition: 100ms linear;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2em 0.5em var(--forest-green-0);
+    opacity: 0;
+    transition: 100ms linear;
 }
 
 .neon-button:hover,
 .neon-button:focus {
-  background: var(--forest-green-0);
-  color: var(--forest-green-1);
-  text-shadow: 0;
-  border: var(--forest-green-0) 0.125em solid;
-  transition: 100ms linear;
-  transition: 200ms linear color;
+    background: var(--forest-green-0);
+    color: var(--forest-green-1);
+    text-shadow: 0;
+    border: var(--forest-green-0) 0.125em solid;
+    transition: 100ms linear;
+    transition: 200ms linear color;
 }
 
 .neon-button:hover::before,
 .neon-button:focus::before {
-  transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1.1, 0.6);
+    transform: perspective(2em) rotateX(40deg) translateZ(0.5em) scale(1.1, 0.6);
 }
 
 .neon-button:hover::after,
 .neon-button:focus::after {
-  opacity: 1;
+    opacity: 1;
 }
 
 .center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .page {
-  height: 100vh;
+    height: 100vh;
 }
 
 div.precontentbox {
-  height: 3rem;
-  /* https://www.w3schools.com/howto/howto_css_parallax.asp */
+    height: 3rem;
+    /* https://www.w3schools.com/howto/howto_css_parallax.asp */
 }
 
 div.contentboxwall {
-  background: linear-gradient(150deg, var(--light-gray) 50%, transparent 50%) no-repeat;
-  background-size: 200% 200%;
-  background-position: right bottom;
-  transition: all .5s ease-in-out;
-  margin: 2rem;
+    background: linear-gradient(150deg, var(--light-gray) 50%, transparent 50%) no-repeat;
+    background-size: 200% 200%;
+    background-position: right bottom;
+    transition: all .5s ease-in-out;
+    margin: 2rem;
 }
 
 div.contentboxwall:hover,
 div.contentboxwall:focus {
-  background-position: left top;
-  box-shadow: 
-    0 0 2em 0.5em var(--forest-green-0),
-    0 0 1em 0.1em black inset;
+    background-position: left top;
+    box-shadow: 0 0 2em 0.5em var(--forest-green-0), 0 0 1em 0.1em black inset;
 }
 
 div.contentbox {
-  display: flex;
-  height: min-content;
-  cursor: pointer;
-  transition: 300ms linear;
-  background-color: transparent;
-
-  --b: 0.5rem;
-  /* the border thickness*/
-  --g: 1rem;
-  /* the gap on hover */
-
-  padding: calc(var(--g) + var(--b));
-  --_g: #0000 25%, var(--forest-green-0) 0;
-  background:
-    conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0 /200% var(--_i, var(--b)) no-repeat,
-    conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
-  transition: .3s, background-position .3s .3s;
-  cursor: pointer;
+    display: flex;
+    height: min-content;
+    cursor: pointer;
+    transition: 300ms linear;
+    background-color: transparent;
+    --b: 0.5rem;
+    /* the border thickness*/
+    --g: 1rem;
+    /* the gap on hover */
+    padding: calc(var(--g) + var(--b));
+    --_g: #0000 25%, var(--forest-green-0) 0;
+    background: conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) var(--_i, 200%) 0 /200% var(--_i, var(--b)) no-repeat, conic-gradient(at bottom var(--b) left var(--b), var(--_g)) 0 var(--_i, 200%)/var(--_i, var(--b)) 200% no-repeat;
+    transition: .3s, background-position .3s .3s;
+    cursor: pointer;
 }
 
 div.contentbox:hover,
 div.contentbox:focus {
-  --_i: 100%;
-  transition: .3s, background-size .3s .3s;
+    --_i: 100%;
+    transition: .3s, background-size .3s .3s;
 }
 
 div.contentbox div {
-  padding: 1rem;
+    padding: 1rem;
 }
 
 div.contentbox img {
-  height: calc(30vh - 2rem);
-  margin: 1rem;
+    height: calc(30vh - 2rem);
+    margin: 1rem;
 }
 
 section {
-  margin: 2rem;
-  padding: 1rem;
+    margin: 2rem;
+    padding: 1rem;
 }
