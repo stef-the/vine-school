@@ -109,7 +109,6 @@ async function fetchAsync() {
         document.getElementsByClassName("infobox vevent")[0].remove();
 
         const sections = document.querySelectorAll("section");
-        console.log(sections);
 
         for (let i = 0; i < sections.length; i++) {
             sections[i].classList.add("contentboxwall");
@@ -120,24 +119,33 @@ async function fetchAsync() {
                 };
             }
             let storedHTML = sections[i].innerHTML;
-            let links = sections[i].getElementsByTagName('a');
+            let links = sections[i].getElementsByTagName("a");
 
-            [...links].forEach(link => {
-                storedHTML.replaceAll(link, '');
+            [...links].forEach((link) => {
+                storedHTML.replaceAll(link, "");
             });
 
             sections[
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
-            let h2element = sections[i].getElementsByTagName("h2")[0];
-            let elements = sections[i].children;
-            let elementslist = [...elements]
-            console.log(elementslist)
-            elementslist.shift();
+            [...sections[i].getElementsByTagName("h2")].forEach(
+                (a) =>
+                (a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`)
+            );
+            [...sections[i].getElementsByTagName("a")].forEach(
+                (a) => (a.outerHTML = a.innerHTML)
+            );
+            [...sections[i].querySelectorAll("span.mw-reflink-text")].forEach(
+                (a) => (a.outerHTML = "")
+            );
+        }
 
-            console.log(elementslist)
+        const contentboxes = document.getElementsByClassName("contentbox");
 
+        for (let i = 0; i < sections.length; i++) {
+            let contentbox = contentboxes[i];
+            contentbox.dataset.drop = false;
         }
     } catch (err) {
         console.error(err.message);

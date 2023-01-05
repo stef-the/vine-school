@@ -199,3 +199,29 @@ section {
     margin: 2rem;
     padding: 1rem;
 }
+
+h2 {
+    margin-top: 0;
+}
+
+div.contentbox div:first-child {
+    margin-top: 0;
+}
+
+.dropdownbutton {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.dropdownbutton:hover,
+.dropdownbutton:active {
+    color: var(--forest-green-0);
+    background-size: 0 0.1em, 100% 0.1em;
+    transition: 100ms linear;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.25em var(--forest-green-0);
+}
