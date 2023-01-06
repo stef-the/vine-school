@@ -152,13 +152,6 @@ async function fetchAsync() {
                 };
             }
         }
-
-        const contentboxes = document.getElementsByClassName("contentbox");
-
-        for (let i = 0; i < sections.length; i++) {
-            let contentbox = contentboxes[i];
-            contentbox.dataset.drop = false;
-        }
     } catch (err) {
         console.error(err.message);
     }
