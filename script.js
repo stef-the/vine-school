@@ -137,18 +137,28 @@ async function fetchAsync() {
 
             if (i !== 0) {
                 const subcontentbox = sections[i].querySelector("div.contentbox div");
+                const contentbox = sections[i].getElementsByClassName("contentbox")[0];
                 const h2e = subcontentbox.firstChild;
                 subcontentbox.removeChild(h2e);
                 subcontentbox.innerHTML = `<div class="dropdowncontent muted">${subcontentbox.innerHTML}</div>`;
                 subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
-                h2e.onclick = function(self) {
-                    let element;
-                    if (self.path[0].id.includes("dropdownbutton")) {
-                        element = self.path[0];
-                    } else if (self.path[1].id.includes("dropdownbutton")) {
-                        element = self.path[1];
+                contentbox.onclick = function(self) {
+                    let output = false;
+                    if (self.target.className == "dropdownbutton") {
+                        output = self.target;
+                    } else if (self.target.parentElement.className == "dropdownbutton") {
+                        output = self.target.parentElement;
+                    } else if (self.target.firstChild.className == "dropdownbutton") {
+                        output = self.target.firstChild;
+                    } else if (
+                        self.target.firstChild.firstChild.className == "dropdownbutton"
+                    ) {
+                        output = self.target.firstChild.firstChild;
                     }
-                    element.nextElementSibling.classList.toggle("muted");
+
+                    if (output !== false) {
+                        output.nextSibling.classList.toggle("muted");
+                    }
                 };
             }
         }
