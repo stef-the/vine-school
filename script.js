@@ -144,12 +144,17 @@ async function fetchAsync() {
                 subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
                 contentbox.onclick = function(self) {
                     let output = false;
+
                     if (self.target.className == "dropdownbutton") {
                         output = self.target;
                     } else if (self.target.parentElement.className == "dropdownbutton") {
                         output = self.target.parentElement;
                     } else if (self.target.firstChild.className == "dropdownbutton") {
                         output = self.target.firstChild;
+                    } else if (self.target.parentElement.className == "dropdowncontent") {
+                        output = self.target.parentElement.parentElement.firstChild;
+                    } else if (self.target.className == "dropdowncontent") {
+                        output = self.target.parentElement.firstChild;
                     } else if (
                         self.target.firstChild.firstChild.className == "dropdownbutton"
                     ) {
