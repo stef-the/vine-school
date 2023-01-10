@@ -218,16 +218,13 @@ div.contentbox div:first-child {
     outline: inherit;
 }
 
-.dropdownbutton:hover,
-.dropdownbutton:active {
-    color: var(--forest-green-0);
-    background-size: 0 0.1em, 100% 0.1em;
-    transition: 100ms linear;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.25em var(--forest-green-0);
-}
-
-.muted {
+.dropdowncontent.muted {
     display: none !important;
     color: transparent;
     transition: 100ms linear;
+    height: 0;
+}
+
+.dropdowncontent:not(.muted) {
+    height: auto;
 }
