@@ -6,6 +6,21 @@ toggleSwitch.checked = true;
 body.classList.toggle("dark");
 document.documentElement.setAttribute("data-theme", "dark");
 
+function offsetAnchor() {
+    if (location.hash.length !== 0) {
+        window.scrollTo(window.scrollX, window.scrollY - 100);
+    }
+}
+
+$(document).on('click', 'a[href^="#"]', function(event) {
+    window.setTimeout(function() {
+        offsetAnchor();
+    }, 0);
+});
+
+// Set the offset when entering page with hash present in the url
+window.setTimeout(offsetAnchor, 0);
+
 function switchTheme(e) {
     if (e.target.checked) {
         document.documentElement.setAttribute("data-theme", "dark");
@@ -109,6 +124,7 @@ async function fetchAsync() {
         document.getElementsByClassName("infobox vevent")[0].remove();
 
         const sections = document.querySelectorAll("section");
+        const nav = document.getElementById("nav");
 
         for (let i = 0; i < sections.length; i++) {
             sections[i].classList.add("contentboxwall");
@@ -124,10 +140,16 @@ async function fetchAsync() {
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
-            [...sections[i].getElementsByTagName("h2")].forEach(
-                (a) =>
-                (a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`)
-            );
+            [...sections[i].getElementsByTagName("h2")].forEach((a) => {
+                a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`;
+                console.log(a);
+                let link = document.createElement("a");
+                link.href = "#" + a.id;
+                link.innerText = a.innerText;
+                link.classList.add("navlink");
+                console.log(link);
+                nav.insertAdjacentElement("afterbegin", link)
+            });
             [...sections[i].getElementsByTagName("a")].forEach(
                 (a) => (a.outerHTML = a.innerHTML)
             );
