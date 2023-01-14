@@ -32,33 +32,6 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-const langers = {
-    "en-uk": {
-        creation: {
-            title: "Creation and Release",
-            content: "Vine was initially concieved in June 2012. It was then bought by Twitter in October 2012. Its official release happened on January 24, 2013 - nearly ten years ago.",
-            img: "vine.png",
-        },
-        purpose: {
-            title: "Purpose",
-            content: "Vine is a short-form video platform and social media. abc,",
-            img: "vine.png",
-        },
-    },
-    "fr-fr": {
-        creation: {
-            title: "Creation",
-            content: "Vine a ete initallement concu en  2012. Elle a ensuite ete achete Twitter en Octobre 2012. Ce produit a ete finalement sortie le 24 Janvier, 2013 - il y a presque dix ans.",
-            img: "vine.png",
-        },
-        purpose: {
-            title: "Purpose",
-            content: "Vine est une plateforme de videos courts, et donc un reseau social. akjdab.",
-            img: "vine.png",
-        },
-    },
-};
-
 const lang = {};
 const langSwitchButton = document.getElementById("langswitch");
 const content = document.getElementById("content");
