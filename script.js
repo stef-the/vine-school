@@ -32,45 +32,6 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
-const lang = {};
-const langSwitchButton = document.getElementById("langswitch");
-const content = document.getElementById("content");
-let englishBool = true;
-
-function swapLang(languageTag) {
-    let append = "";
-    for (let element in lang[languageTag]) {
-        append += `
-        <div class="precontentbox"></div>
-        <div data-aos="fade-up"><div class="contentboxwall">
-          <div class="contentbox">
-            <img src="${lang[languageTag][element]["img"]}">
-            <div>
-              <h1 id="${element}title">${lang[languageTag][element]["title"]}</h1>
-              <span id="${element}0">${lang[languageTag][element]["content"]}</span>
-            </div>
-          </div>
-        </div></div>`;
-    }
-
-    content.innerHTML = append;
-}
-
-function langSwitch() {
-    if (englishBool) {
-        englishBool = false;
-        //swapLang("fr-fr");
-    } else {
-        englishBool = true;
-        //swapLang("en-uk");
-    }
-    console.error("Stop!!! it hurts...");
-}
-
-//swapLang("en-uk");
-
-function dropdown() {}
-
 async function doFetch() {
     const rsp = await fetch(
         "https://en.wikipedia.org/api/rest_v1/page/html/Vine_%28service%29?redirect=false&stash=true", {
