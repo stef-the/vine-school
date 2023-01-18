@@ -34,7 +34,7 @@ toggleSwitch.addEventListener("change", switchTheme, false);
 
 async function doFetch() {
     const rsp = await fetch(
-        "https://en.wikipedia.org/api/rest_v1/page/html/Vine?redirect=false&stash=true", {
+        "https://en.wikipedia.org/api/rest_v1/page/html/Vine_%28service%29&redirect=false&stash=true", {
             "Api-User-Agent": "MediaWiki REST API docs examples/0.1 (https://www.mediawiki.org/wiki/API_talk:REST_API)",
         }
     );
