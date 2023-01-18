@@ -210,9 +210,16 @@ div.contentbox:hover::before {
     height: 50%;
 }
 
-div.contentbox:active,
-div.contentbox:focus,
-div.contentbox:not(:has(div.muted)) {
+div.contentbox:active:not(.firstSection),
+div.contentbox:focus:not(.firstSection),
+div.contentbox:not(:has(div.muted)):not(.firstSection) {
+    --_i: 100%;
+    transition: .5s, background-size .7s .5s;
+}
+
+div.contentbox.firstSection:hover,
+div.firstSection:active,
+div.firstSection:focus {
     --_i: 100%;
     transition: .5s, background-size .7s .5s;
 }
@@ -256,8 +263,4 @@ div.contentbox div:first-child {
 .dropdowncontent:not(.muted) {
     height: auto;
     display: block;
-}
-
-display: block;
-
 }

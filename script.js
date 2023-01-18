@@ -69,9 +69,7 @@ function langSwitch() {
 
 //swapLang("en-uk");
 
-function dropdown() {
-    console.log(dropdown.caller.arguments[0].target.id);
-}
+function dropdown() {}
 
 async function doFetch() {
     const rsp = await fetch(
@@ -112,15 +110,12 @@ async function fetchAsync() {
                 i
             ].innerHTML = `<div class="contentbox"><div>${storedHTML}</div></div>`;
 
-            //console.log([...sections[i].getElementsByTagName("h2")].reverse());
             [...sections[i].getElementsByTagName("h2")].forEach((a) => {
                 a.outerHTML = `<button class="dropdownbutton" id="dropdownbutton-${i}">${a.outerHTML}</button>`;
-                console.log(a);
                 let link = document.createElement("a");
                 link.href = "#" + a.id;
                 link.innerText = a.innerText;
                 link.classList.add("navlink");
-                console.log(nav.children);
                 nav.insertBefore(link, nav.children[-1]);
             });
             [...sections[i].getElementsByTagName("a")].forEach(
@@ -166,6 +161,8 @@ async function fetchAsync() {
         document.querySelectorAll('[role="note"]').forEach((element) => {
             element.remove();
         });
+
+        sections[0].firstChild.classList.add("firstSection");
     } catch (err) {
         console.error(err.message);
     }
