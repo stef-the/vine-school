@@ -191,7 +191,7 @@ div.contentbox::before {
     height: 0;
 }
 
-div.contentbox::before {
+div.contentbox:not(.firstSection)::before {
     left: 1rem;
     bottom: 25%;
     width: 0;
