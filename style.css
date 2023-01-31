@@ -276,3 +276,20 @@ div.contentbox div:first-child {
         margin: 0.5rem;
     }
 }
+
+footer {
+    margin: 2rem;
+    font-size: large;
+    color: var(--black);
+    cursor: default;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--forest-green-1);
+    transition: 100ms ease;
+}
+
+footer a:hover {
+    color: var(--forest-green-0);
+}
