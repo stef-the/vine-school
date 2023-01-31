@@ -264,3 +264,15 @@ div.contentbox div:first-child {
     height: auto;
     display: block;
 }
+
+@media only screen and (max-width: 900px) {
+    .contentboxwall {
+        margin: 0.5rem;
+    }
+    div.contentbox {
+        padding: calc((var(--g) + var(--b))/2);
+    }
+    div.contentbox div {
+        margin: 0.5rem;
+    }
+}
