@@ -43,6 +43,7 @@ async function doFetch() {
 }
 
 async function fetchAsync() {
+    const d0 = new Date;
     try {
         let result = await doFetch();
         let a = result.split("<section");
@@ -95,21 +96,22 @@ async function fetchAsync() {
                 subcontentbox.insertBefore(h2e, subcontentbox.firstChild);
                 contentbox.onclick = function(self) {
                     let output = false;
+                    const targetOutput = self.target;
 
                     if (self.target.className == "dropdownbutton") {
-                        output = self.target;
-                    } else if (self.target.parentElement.className == "dropdownbutton") {
-                        output = self.target.parentElement;
-                    } else if (self.target.firstChild.className == "dropdownbutton") {
-                        output = self.target.firstChild;
-                    } else if (self.target.parentElement.className == "dropdowncontent") {
-                        output = self.target.parentElement.parentElement.firstChild;
-                    } else if (self.target.className == "dropdowncontent") {
-                        output = self.target.parentElement.firstChild;
+                        output = targetOutput;
+                    } else if (targetOutput.parentElement.className == "dropdownbutton") {
+                        output = targetOutput.parentElement;
+                    } else if (targetOutput.firstChild.className == "dropdownbutton") {
+                        output = targetOutput.firstChild;
+                    } else if (targetOutput.parentElement.className == "dropdowncontent") {
+                        output = targetOutput.parentElement.parentElement.firstChild;
+                    } else if (targetOutput.className == "dropdowncontent") {
+                        output = targetOutput.parentElement.firstChild;
                     } else if (
-                        self.target.firstChild.firstChild.className == "dropdownbutton"
+                        targetOutput.firstChild.firstChild.className == "dropdownbutton"
                     ) {
-                        output = self.target.firstChild.firstChild;
+                        output = targetOutput.firstChild.firstChild;
                     }
 
 
@@ -129,6 +131,8 @@ async function fetchAsync() {
     } catch (err) {
         console.error(err.message);
     }
+    const d1 = new Date;
+    console.log((d1.getTime() - d0.getTime()).toString() + 'ms')
 }
 
 fetchAsync();
