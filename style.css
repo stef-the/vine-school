@@ -206,20 +206,20 @@ div.contentbox:not(:has(div.muted))::before {
     transition: height none;
 }
 
-div.contentbox:hover::before {
+div.contentbox:hover:not(.firstSection)::before {
     height: 50%;
 }
 
 div.contentbox:active:not(.firstSection),
 div.contentbox:focus:not(.firstSection),
-div.contentbox:not(:has(div.muted)):not(.firstSection) {
+div.contentbox.on {
     --_i: 100%;
     transition: .5s, background-size .7s .5s;
 }
 
 div.contentbox.firstSection:hover,
-div.firstSection:active,
-div.firstSection:focus {
+div.contentbox.firstSection:active,
+div.contentbox.firstSection:focus {
     --_i: 100%;
     transition: .5s, background-size .7s .5s;
 }

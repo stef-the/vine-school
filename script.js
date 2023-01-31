@@ -151,8 +151,10 @@ async function fetchAsync() {
                         output = self.target.firstChild.firstChild;
                     }
 
+
                     if (output !== false) {
                         output.nextSibling.classList.toggle("muted");
+                        output.parentElement.parentElement.classList.toggle('on');
                     }
                 };
             }
