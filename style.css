@@ -1,5 +1,5 @@
 :root {
-    --black: #050508;
+    --black: #151520;
     --cool-gray: #4a4b4a;
     --light-gray: #d4d4d4;
     --white: #edf0ee;
@@ -34,7 +34,6 @@ body {
     font-family: "Open Sans";
     color: var(--black);
     background-image: linear-gradient(45deg, var(--white), var(--light-gray));
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     transition: 250ms ease-in-out;
@@ -167,6 +166,7 @@ div.contentbox {
     height: min-content;
     cursor: pointer;
     transition: 300ms linear;
+    color: var(--cool-gray);
     background-color: transparent;
     --b: 0.5rem;
     --g: 1rem;
@@ -178,7 +178,7 @@ div.contentbox {
 }
 
 div.contentbox:hover {
-    color: white;
+    color: var(--black);
     transition: color 0.25s ease;
 }
 
@@ -196,7 +196,7 @@ div.contentbox:not(.firstSection)::before {
     bottom: 25%;
     width: 0;
     height: 0;
-    border-left: 0.5rem solid white;
+    border-left: 0.5rem solid var(--black);
     z-index: -5;
     transition: height .4s ease;
 }
@@ -214,8 +214,18 @@ div.contentbox:active:not(.firstSection),
 div.contentbox:focus:not(.firstSection),
 div.contentbox.on {
     --_i: 100%;
-    transition: .5s, background-size .7s .5s;
+    box-shadow: 0 0 5px 1px var(--forest-green-0);
+    transition: .5s, background-size .7s .5s, box-shadow 1.2s;
 }
+
+
+/*
+div.contentbox:active:not(.firstSection):first-child,
+div.contentbox:focus:not(.firstSection):first-child,
+div.contentbox.on:first-child {
+    box-shadow: inset 0 0 10px 2px var(--light-gray);
+}
+*/
 
 div.contentbox.firstSection:hover,
 div.contentbox.firstSection:active,
@@ -254,6 +264,7 @@ div.contentbox div:first-child {
     font: inherit;
     cursor: pointer;
     outline: inherit;
+    scroll-margin-top: 7em;
 }
 
 .dropdowncontent.muted {
