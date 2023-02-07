@@ -32,6 +32,7 @@ function switchTheme(e) {
 
 toggleSwitch.addEventListener("change", switchTheme, false);
 
+// asynchronous, returns wikipedia page (html)
 async function doFetch() {
     const rsp = await fetch(
         "https://en.wikipedia.org/api/rest_v1/page/html/Vine_%28service%29", {
@@ -42,8 +43,10 @@ async function doFetch() {
     return data;
 }
 
+// fetch data from wikipedia using doFetch()
+// parse it and insert into website
 async function fetchAsync() {
-    const d0 = new Date;
+    const d0 = new Date();
     try {
         let result = await doFetch();
         let a = result.split("<section");
@@ -104,7 +107,9 @@ async function fetchAsync() {
                         output = targetOutput.parentElement;
                     } else if (targetOutput.firstChild.className == "dropdownbutton") {
                         output = targetOutput.firstChild;
-                    } else if (targetOutput.parentElement.className == "dropdowncontent") {
+                    } else if (
+                        targetOutput.parentElement.className == "dropdowncontent"
+                    ) {
                         output = targetOutput.parentElement.parentElement.firstChild;
                     } else if (targetOutput.className == "dropdowncontent") {
                         output = targetOutput.parentElement.firstChild;
@@ -114,10 +119,9 @@ async function fetchAsync() {
                         output = targetOutput.firstChild.firstChild;
                     }
 
-
                     if (output !== false) {
                         output.nextSibling.classList.toggle("muted");
-                        output.parentElement.parentElement.classList.toggle('on');
+                        output.parentElement.parentElement.classList.toggle("on");
                     }
                 };
             }
@@ -131,8 +135,8 @@ async function fetchAsync() {
     } catch (err) {
         console.error(err.message);
     }
-    const d1 = new Date;
-    console.log((d1.getTime() - d0.getTime()).toString() + 'ms')
+    const d1 = new Date();
+    console.log((d1.getTime() - d0.getTime()).toString() + "ms");
 }
 
 fetchAsync();
